@@ -1,0 +1,1148 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python &#8212; Python Programming for Chemical Sciences (CK1310)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/python';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="Jupyter notebooks" href="jupyter.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Python Programming for Chemical Sciences (CK1310) - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Python Programming for Chemical Sciences (CK1310) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Software installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/kthpanor/ck1310" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/kthpanor/ck1310/issues/new?title=Issue%20on%20page%20%2Fdocs/python.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/python.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-modules">Important modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-necessities">Some necessities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterations">Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions">Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-with-numpy">Arrays with NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations">Array operations</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-object-oriented-programming">Classes and object-oriented programming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-matplotlib">Plotting with Matplotlib</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-help-function">Python help function</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h1>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> has developed into an (almost) indispensable tool in computational and engineering sciences, in particular in combination with Jupyter notebooks <span id="id1">[<a class="reference internal" href="references.html#id4" title="Jeffrey M. Perkel. Programming: Pick up Python. Nature, 518:125, 2015. doi:10.1038/518125a.">Per15</a>, <a class="reference internal" href="references.html#id3" title="Jeffrey M. Perkel. Why Jupyter is data scientists' computational notebook of choice. Nature, 563:145, 2018. doi:10.1038/d41586-018-07196-1.">Per18</a>]</span>.</p>
+<p>Python offers an intuitive syntax with a high degree of code readability and it is used for everything from simple scripting and fast prototyping to large-scale projects.</p>
+<p>Python is open source and free for use and distribution. It is available for all relevant platforms, including</p>
+<ul class="simple">
+<li><p>Linux</p></li>
+<li><p>MacOS</p></li>
+<li><p>Windows</p></li>
+</ul>
+</section>
+<section id="important-modules">
+<h2>Important modules<a class="headerlink" href="#important-modules" title="Link to this heading">#</a></h2>
+<p>Python code is typically written in the form of functions that are stored in libraries (or <em>modules</em>) and made available with the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
+<p>Modules of specific concern in this course include</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/absolute_beginners.html">NumPy</a> introduces multi-dimensional arrays and provides efficient array operations</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/general.html">SciPy</a> provides mathematical algorithms and convenience functions built on NumPy</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/users/index.html">Matplotlib</a> is a visualization library in Python for plotting arrays</p></li>
+<li><p><a class="reference external" href="https://kthpanor.github.io/echem/docs/intro.html#veloxchem">VeloxChem</a> is a quantum chemistry program for molecular simulations.</p></li>
+</ul>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h2>
+<p>The amount of Python documentation is vast and so is the community of module contributers. If you are in search of the solution to an isolated task or  problem, there is a great chance that someone has contributed an efficient and stable implementation on the web.</p>
+<ul class="simple">
+<li><p>The official course book is <em>An Introduction to Python Programming for Scientists and Engineers</em> <span id="id2">[<a class="reference internal" href="references.html#id2" title="Johnny Wei-Bing Lin, Hannah Aizenman, Erin Manette Cartas Espinel, Kim Gunnerson, and Joanne Liu. An Introduction to Python Programming for Scientists and Engineers. Cambridge University Press, 2022.">LAMCE+22</a>]</span>.</p></li>
+<li><p>One of many alternative is the book titled <em>A Whirlwind Tour of Python</em> authored by Jake VanderPlas as it provides a short, clear, and to-the-point presentation <span id="id3">[<a class="reference internal" href="references.html#id5" title="Jake VanderPlas. A Whirlwind Tour of Python. O'Reilly, 2016. URL: https://jakevdp.github.io/WhirlwindTourOfPython/.">Van16</a>]</span>.</p></li>
+<li><p>If you have some experience and rather benefit from a more reference-oriented documentation, a recommended source is <a class="reference external" href="https://www.w3schools.com/python/python_intro.asp">W3Schools</a>.</p></li>
+<li><p>If you find watching tutorial videos useful, the series made by Corey Schafer is recommended. Below is one example from this series.</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/HW29067qVWk" frameborder="0" allowfullscreen>
+</iframe>'
+</div></div>
+</div>
+</section>
+<section id="some-necessities">
+<h2>Some necessities<a class="headerlink" href="#some-necessities" title="Link to this heading">#</a></h2>
+<section id="iterations">
+<h3>Iterations<a class="headerlink" href="#iterations" title="Link to this heading">#</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is used for iterating over an iterable object (such as a list, dictionary, or string).</p>
+<p>A “standard” loop is accomplished with the <code class="docutils literal notranslate"><span class="pre">range</span></code> function. The <code class="docutils literal notranslate"><span class="pre">range</span></code> function returns an iterable sequence of numbers, starting from 0 by default, and increments by 1 (by default), and ends at a specified number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-types">
+<h3>Data types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h3>
+<p>Basic Python data types include <code class="docutils literal notranslate"><span class="pre">integer</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, and <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>     <span class="c1"># integer</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">3.1415</span> <span class="c1"># float</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span> <span class="c1"># string</span>
+
+<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span> <span class="c1"># list</span>
+<span class="n">b_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="n">s</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">:</span> <span class="n">a_list</span><span class="p">}</span> <span class="c1"># dictonary</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elements in list:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elements in dictionary:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">b_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Key, value:&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">b_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elements in list:
+0 3.1415 3.1415
+1 [1, 2, 3] [1, 2, 3]
+Elements in dictionary:
+Key, value: first text
+Key, value: second [3.1415, [1, 2, 3]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The object type is revealed by the <code class="docutils literal notranslate"><span class="pre">type</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A Python <code class="docutils literal notranslate"><span class="pre">list</span></code> with <span class="math notranslate nohighlight">\(N\)</span> elements is indexed from 0 to <span class="math notranslate nohighlight">\((N-1)\)</span>.</p>
+</div>
+</section>
+<section id="conditions">
+<h3>Conditions<a class="headerlink" href="#conditions" title="Link to this heading">#</a></h3>
+<p>Python supports the usual logical conditions:</p>
+<ul class="simple">
+<li><p>Equal: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code></p></li>
+<li><p>Not Equal: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code></p></li>
+<li><p>Less than: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code></p></li>
+<li><p>Less than or equal to: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code></p></li>
+<li><p>Greater than: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code></p></li>
+<li><p>Greater than or equal to: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;=</span> <span class="pre">b</span></code></p></li>
+</ul>
+<p>These conditions are typically used in conjunction with <code class="docutils literal notranslate"><span class="pre">if</span></code> statements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alcohols</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;cyclohexanol&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;formula&#39;</span><span class="p">:</span> <span class="s1">&#39;C6H11OH&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;boiling point&#39;</span><span class="p">:</span> <span class="mi">162</span> <span class="p">},</span>
+    <span class="s1">&#39;ethanol&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;formula&#39;</span><span class="p">:</span> <span class="s1">&#39;CH3-CH2OH&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;boiling point&#39;</span><span class="p">:</span> <span class="mi">78</span> <span class="p">},</span>
+    <span class="s1">&#39;isopropanol&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;formula&#39;</span><span class="p">:</span> <span class="s1">&#39;CH3-CHOH-CH3&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;boiling point&#39;</span><span class="p">:</span> <span class="mi">80</span> <span class="p">},</span>
+    <span class="s1">&#39;methanol&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;formula&#39;</span><span class="p">:</span> <span class="s1">&#39;CH3OH&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;boiling point&#39;</span><span class="p">:</span> <span class="mi">65</span> <span class="p">},</span>
+    <span class="s1">&#39;phenylmethanol&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;formula&#39;</span><span class="p">:</span> <span class="s1">&#39;C6H5-CH2OH&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;boiling point&#39;</span><span class="p">:</span> <span class="mi">205</span> <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">lowest_bp</span> <span class="o">=</span> <span class="mi">9999</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">alcohols</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">alcohols</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;boiling point&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lowest_bp</span><span class="p">:</span>
+        <span class="n">alc_with_lowest_bp</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="n">lowest_bp</span> <span class="o">=</span> <span class="n">alcohols</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;boiling point&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alc_with_lowest_bp</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="s1">&#39;has the lowest boiling point.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It has chemical formula:&#39;</span><span class="p">,</span> <span class="n">alcohols</span><span class="p">[</span><span class="n">alc_with_lowest_bp</span><span class="p">][</span><span class="s1">&#39;formula&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It has a boiling point of&#39;</span><span class="p">,</span> <span class="n">lowest_bp</span><span class="p">,</span> <span class="s1">&#39;degrees Celsius.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Methanol has the lowest boiling point.
+It has chemical formula: CH3OH
+It has a boiling point of 65 degrees Celsius.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="arrays-with-numpy">
+<h3>Arrays with NumPy<a class="headerlink" href="#arrays-with-numpy" title="Link to this heading">#</a></h3>
+<p>Arrays (such as vectors and matrices) should be represented as objects of the NumPy <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> class. <a class="reference external" href="https://numpy.org/doc/stable/user/basics.creation.html">Array creation</a> can be performed in numerous ways. Two ways to create a NumPy <code class="docutils literal notranslate"><span class="pre">array</span></code> from a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> are given below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Alternative 1:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Alternative 2:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alternative 1:
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+Alternative 2:
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are several predeifined arrays, all available for different data types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zero matrix:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;One matrix:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Identity matrix:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zero matrix:
+ [[0 0 0]
+ [0 0 0]
+ [0 0 0]]
+One matrix:
+ [[1. 1. 1.]
+ [1. 1. 1.]
+ [1. 1. 1.]]
+Identity matrix:
+ [[1.+0.j 0.+0.j 0.+0.j]
+ [0.+0.j 1.+0.j 0.+0.j]
+ [0.+0.j 0.+0.j 1.+0.j]]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="array-operations">
+<h4>Array operations<a class="headerlink" href="#array-operations" title="Link to this heading">#</a></h4>
+<p>Array operations should be performed with NumPy routines. The NumPy array operation routines are based on optimized libraries that enable multi-thread execution with use of <a class="reference external" href="https://en.wikipedia.org/wiki/OpenMP">OpenMP</a>. On a computer equipped with an Intel processor, the underlying library for NumPy is normally chosen as the <a class="reference external" href="https://en.wikipedia.org/wiki/Math_Kernel_Library">Math Kernel Library (MKL)</a>. Never feel tempted to use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops as the performance is tyically orders of magnitude slower. The two most important Numpy array operations are</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dot(a,b)</span></code>: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html">vector dot product</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matmul(a,b)</span></code>: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html">matrix mulitplication</a></p></li>
+</ul>
+<p>A comparison of the use of <code class="docutils literal notranslate"><span class="pre">matmul</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops for the multiplication of two matrices of dimension 100<span class="math notranslate nohighlight">\(\times\)</span>100 shows the following execution times (in ms).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Fixing random state for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">20210802</span><span class="p">)</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+
+<span class="n">ti</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="n">tf</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  matmul: </span><span class="si">{</span><span class="p">(</span><span class="n">tf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ti</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s1">10.4f</span><span class="si">}</span><span class="s1"> (ms)&#39;</span><span class="p">)</span>
+
+<span class="n">ti</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+
+<span class="n">tf</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;for loop: </span><span class="si">{</span><span class="p">(</span><span class="n">tf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ti</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s1">10.4f</span><span class="si">}</span><span class="s1"> (ms)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  matmul:     0.5171 (ms)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>for loop:   511.0452 (ms)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="classes-and-object-oriented-programming">
+<h3>Classes and object-oriented programming<a class="headerlink" href="#classes-and-object-oriented-programming" title="Link to this heading">#</a></h3>
+<p>Python naturally invites to good software engineering practices in terms of <a class="reference external" href="https://www.w3schools.com/python/python_classes.asp">object-oriented programming</a>. Almost everything in Python is an <code class="docutils literal notranslate"><span class="pre">object</span></code>, with its properties and methods and a <code class="docutils literal notranslate"><span class="pre">class</span></code> is like an object constructor, or a “blueprint” for creating objects known as <em>instances</em> of the class.</p>
+<p>It cannot be overemphasized that the use of object-oriented programming is highly enabling for code sharing and team development, and it is strongly recommended to adopt these practices.</p>
+<p>As an example, we implement a <em>class</em> <code class="docutils literal notranslate"><span class="pre">Triangle</span></code> with a <em>method</em> <code class="docutils literal notranslate"><span class="pre">area</span></code> and <em>attributes</em> <code class="docutils literal notranslate"><span class="pre">base</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The instance reference is automatically passed as the first argument to the methods. By convention, this argument should be recieved as a parameter named <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is executed every time a new instance of the class is created.</p>
+</div>
+<p>It is a common practice to store the code of classes in separate library files (or modules) with the file extension <code class="docutils literal notranslate"><span class="pre">*.py</span></code>. In this case, we can imagine that we store the <code class="docutils literal notranslate"><span class="pre">Triangle</span></code> class together with several other geometric objects into a module named <code class="docutils literal notranslate"><span class="pre">geometry.py</span></code> after which these would be readily available from other modules by means of an <code class="docutils literal notranslate"><span class="pre">import</span></code> statement:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geometry</span> <span class="k">as</span> <span class="nn">gm</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">gm</span></code> is an optional shorter name reference of your choice.</p>
+<p>The user of such an encapsulated module need not be concerned about the details of the code which is the key enabling factor for code-sharing. We define an instance of this class according to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">gm</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and execute the function that calculates the area and print out the result as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Area:&quot;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>If the class is kept in the notebook the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement is obviously not needed and we instead access the instance attributes and methods as follows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>         <span class="c1"># class instance</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Base:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>     <span class="c1"># instance attribute</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Height:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">height</span><span class="p">)</span> <span class="c1"># instance attribute</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Area:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>   <span class="c1"># instance method</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Base: 3
+Height: 5
+Area: 7.5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-with-matplotlib">
+<h3>Plotting with Matplotlib<a class="headerlink" href="#plotting-with-matplotlib" title="Link to this heading">#</a></h3>
+<p>Let us use <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> to generate an array of random numbers distributed according to the Gaussian distribution</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}
+e^{-(x-\mu)^2 / (2\sigma^2)}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Fixing random state for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">20210722</span><span class="p">)</span>
+
+<span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span> <span class="c1"># mean and standard deviation</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span> <span class="c1"># return a NumPy array</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Object type:&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of values:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean value: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="si">:</span><span class="s1"> .4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Standard deviation: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="si">:</span><span class="s1"> .4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Object type: &lt;class &#39;numpy.ndarray&#39;&gt;
+Number of values: 5000
+Mean value:  10.0002
+Standard deviation:  0.0996
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> to plot a histogram of the density distribution of the random numbers and compared it to the analytical Gaussian distribution function <span class="math notranslate nohighlight">\(f(x)\)</span> given above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">counts</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mf">9.5</span><span class="p">,</span><span class="mf">10.5</span><span class="p">),</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mf">9.5</span><span class="p">,</span><span class="mf">10.5</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Normal distribution of pseudo random numbers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$f(x)$&#39;</span><span class="p">)</span>
+
+<span class="c1"># save the figure in your favorite format</span>
+<span class="c1">#plt.savefig(&#39;figname.pdf&#39;)</span>
+<span class="c1">#plt.savefig(&#39;figname.png&#39;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bab49ea4c1789ad3d450b6b7bd3935f80cdb36728a72ed8fdb3f1e3829584181.png" src="../_images/bab49ea4c1789ad3d450b6b7bd3935f80cdb36728a72ed8fdb3f1e3829584181.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="python-help-function">
+<h2>Python help function<a class="headerlink" href="#python-help-function" title="Link to this heading">#</a></h2>
+<p>The Python <code class="docutils literal notranslate"><span class="pre">help</span></code> function is used to display the documentation of modules, functions, classes, keywords etc.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function hist in module matplotlib.pyplot:
+
+hist(x: &#39;ArrayLike | Sequence[ArrayLike]&#39;, bins: &#39;int | Sequence[float] | str | None&#39; = None, range: &#39;tuple[float, float] | None&#39; = None, density: &#39;bool&#39; = False, weights: &#39;ArrayLike | None&#39; = None, cumulative: &#39;bool | float&#39; = False, bottom: &#39;ArrayLike | float | None&#39; = None, histtype: &quot;Literal[&#39;bar&#39;, &#39;barstacked&#39;, &#39;step&#39;, &#39;stepfilled&#39;]&quot; = &#39;bar&#39;, align: &quot;Literal[&#39;left&#39;, &#39;mid&#39;, &#39;right&#39;]&quot; = &#39;mid&#39;, orientation: &quot;Literal[&#39;vertical&#39;, &#39;horizontal&#39;]&quot; = &#39;vertical&#39;, rwidth: &#39;float | None&#39; = None, log: &#39;bool&#39; = False, color: &#39;ColorType | Sequence[ColorType] | None&#39; = None, label: &#39;str | Sequence[str] | None&#39; = None, stacked: &#39;bool&#39; = False, *, data=None, **kwargs) -&gt; &#39;tuple[np.ndarray | list[np.ndarray], np.ndarray, BarContainer | Polygon | list[BarContainer | Polygon]]&#39;
+    Compute and plot a histogram.
+    
+    This method uses `numpy.histogram` to bin the data in *x* and count the
+    number of values in each bin, then draws the distribution either as a
+    `.BarContainer` or `.Polygon`. The *bins*, *range*, *density*, and
+    *weights* parameters are forwarded to `numpy.histogram`.
+    
+    If the data has already been binned and counted, use `~.bar` or
+    `~.stairs` to plot the distribution::
+    
+        counts, bins = np.histogram(x)
+        plt.stairs(counts, bins)
+    
+    Alternatively, plot pre-computed bins and counts using ``hist()`` by
+    treating each bin as a single point with a weight equal to its count::
+    
+        plt.hist(bins[:-1], bins, weights=counts)
+    
+    The data input *x* can be a singular array, a list of datasets of
+    potentially different lengths ([*x0*, *x1*, ...]), or a 2D ndarray in
+    which each column is a dataset. Note that the ndarray form is
+    transposed relative to the list form. If the input is an array, then
+    the return value is a tuple (*n*, *bins*, *patches*); if the input is a
+    sequence of arrays, then the return value is a tuple
+    ([*n0*, *n1*, ...], *bins*, [*patches0*, *patches1*, ...]).
+    
+    Masked arrays are not supported.
+    
+    Parameters
+    ----------
+    x : (n,) array or sequence of (n,) arrays
+        Input values, this takes either a single array or a sequence of
+        arrays which are not required to be of the same length.
+    
+    bins : int or sequence or str, default: :rc:`hist.bins`
+        If *bins* is an integer, it defines the number of equal-width bins
+        in the range.
+    
+        If *bins* is a sequence, it defines the bin edges, including the
+        left edge of the first bin and the right edge of the last bin;
+        in this case, bins may be unequally spaced.  All but the last
+        (righthand-most) bin is half-open.  In other words, if *bins* is::
+    
+            [1, 2, 3, 4]
+    
+        then the first bin is ``[1, 2)`` (including 1, but excluding 2) and
+        the second ``[2, 3)``.  The last bin, however, is ``[3, 4]``, which
+        *includes* 4.
+    
+        If *bins* is a string, it is one of the binning strategies
+        supported by `numpy.histogram_bin_edges`: &#39;auto&#39;, &#39;fd&#39;, &#39;doane&#39;,
+        &#39;scott&#39;, &#39;stone&#39;, &#39;rice&#39;, &#39;sturges&#39;, or &#39;sqrt&#39;.
+    
+    range : tuple or None, default: None
+        The lower and upper range of the bins. Lower and upper outliers
+        are ignored. If not provided, *range* is ``(x.min(), x.max())``.
+        Range has no effect if *bins* is a sequence.
+    
+        If *bins* is a sequence or *range* is specified, autoscaling
+        is based on the specified bin range instead of the
+        range of x.
+    
+    density : bool, default: False
+        If ``True``, draw and return a probability density: each bin
+        will display the bin&#39;s raw count divided by the total number of
+        counts *and the bin width*
+        (``density = counts / (sum(counts) * np.diff(bins))``),
+        so that the area under the histogram integrates to 1
+        (``np.sum(density * np.diff(bins)) == 1``).
+    
+        If *stacked* is also ``True``, the sum of the histograms is
+        normalized to 1.
+    
+    weights : (n,) array-like or None, default: None
+        An array of weights, of the same shape as *x*.  Each value in
+        *x* only contributes its associated weight towards the bin count
+        (instead of 1).  If *density* is ``True``, the weights are
+        normalized, so that the integral of the density over the range
+        remains 1.
+    
+    cumulative : bool or -1, default: False
+        If ``True``, then a histogram is computed where each bin gives the
+        counts in that bin plus all bins for smaller values. The last bin
+        gives the total number of datapoints.
+    
+        If *density* is also ``True`` then the histogram is normalized such
+        that the last bin equals 1.
+    
+        If *cumulative* is a number less than 0 (e.g., -1), the direction
+        of accumulation is reversed.  In this case, if *density* is also
+        ``True``, then the histogram is normalized such that the first bin
+        equals 1.
+    
+    bottom : array-like, scalar, or None, default: None
+        Location of the bottom of each bin, i.e. bins are drawn from
+        ``bottom`` to ``bottom + hist(x, bins)`` If a scalar, the bottom
+        of each bin is shifted by the same amount. If an array, each bin
+        is shifted independently and the length of bottom must match the
+        number of bins. If None, defaults to 0.
+    
+    histtype : {&#39;bar&#39;, &#39;barstacked&#39;, &#39;step&#39;, &#39;stepfilled&#39;}, default: &#39;bar&#39;
+        The type of histogram to draw.
+    
+        - &#39;bar&#39; is a traditional bar-type histogram.  If multiple data
+          are given the bars are arranged side by side.
+        - &#39;barstacked&#39; is a bar-type histogram where multiple
+          data are stacked on top of each other.
+        - &#39;step&#39; generates a lineplot that is by default unfilled.
+        - &#39;stepfilled&#39; generates a lineplot that is by default filled.
+    
+    align : {&#39;left&#39;, &#39;mid&#39;, &#39;right&#39;}, default: &#39;mid&#39;
+        The horizontal alignment of the histogram bars.
+    
+        - &#39;left&#39;: bars are centered on the left bin edges.
+        - &#39;mid&#39;: bars are centered between the bin edges.
+        - &#39;right&#39;: bars are centered on the right bin edges.
+    
+    orientation : {&#39;vertical&#39;, &#39;horizontal&#39;}, default: &#39;vertical&#39;
+        If &#39;horizontal&#39;, `~.Axes.barh` will be used for bar-type histograms
+        and the *bottom* kwarg will be the left edges.
+    
+    rwidth : float or None, default: None
+        The relative width of the bars as a fraction of the bin width.  If
+        ``None``, automatically compute the width.
+    
+        Ignored if *histtype* is &#39;step&#39; or &#39;stepfilled&#39;.
+    
+    log : bool, default: False
+        If ``True``, the histogram axis will be set to a log scale.
+    
+    color : color or array-like of colors or None, default: None
+        Color or sequence of colors, one per dataset.  Default (``None``)
+        uses the standard line color sequence.
+    
+    label : str or None, default: None
+        String, or sequence of strings to match multiple datasets.  Bar
+        charts yield multiple patches per dataset, but only the first gets
+        the label, so that `~.Axes.legend` will work as expected.
+    
+    stacked : bool, default: False
+        If ``True``, multiple data are stacked on top of each other If
+        ``False`` multiple data are arranged side by side if histtype is
+        &#39;bar&#39; or on top of each other if histtype is &#39;step&#39;
+    
+    Returns
+    -------
+    n : array or list of arrays
+        The values of the histogram bins. See *density* and *weights* for a
+        description of the possible semantics.  If input *x* is an array,
+        then this is an array of length *nbins*. If input is a sequence of
+        arrays ``[data1, data2, ...]``, then this is a list of arrays with
+        the values of the histograms for each of the arrays in the same
+        order.  The dtype of the array *n* (or of its element arrays) will
+        always be float even if no weighting or normalization is used.
+    
+    bins : array
+        The edges of the bins. Length nbins + 1 (nbins left edges and right
+        edge of last bin).  Always a single array even when multiple data
+        sets are passed in.
+    
+    patches : `.BarContainer` or list of a single `.Polygon` or list of such objects
+        Container of individual artists used to create the histogram
+        or list of such containers if there are multiple input datasets.
+    
+    Other Parameters
+    ----------------
+    data : indexable object, optional
+        If given, the following parameters also accept a string ``s``, which is
+        interpreted as ``data[s]`` (unless this raises an exception):
+    
+        *x*, *weights*
+    
+    **kwargs
+        `~matplotlib.patches.Patch` properties
+    
+    See Also
+    --------
+    hist2d : 2D histogram with rectangular bins
+    hexbin : 2D histogram with hexagonal bins
+    stairs : Plot a pre-computed histogram
+    bar : Plot a pre-computed histogram
+    
+    Notes
+    -----
+    For large numbers of bins (&gt;1000), plotting can be significantly
+    accelerated by using `~.Axes.stairs` to plot a pre-computed histogram
+    (``plt.stairs(*np.histogram(data))``), or by setting *histtype* to
+    &#39;step&#39; or &#39;stepfilled&#39; rather than &#39;bar&#39; or &#39;barstacked&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="jupyter.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Jupyter notebooks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-modules">Important modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-necessities">Some necessities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterations">Iterations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions">Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-with-numpy">Arrays with NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-operations">Array operations</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-object-oriented-programming">Classes and object-oriented programming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-matplotlib">Plotting with Matplotlib</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-help-function">Python help function</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Patrick Norman
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -15,3 +15,9 @@ dependencies:
   - matplotlib
   - pandas
   - openpyxl
+  - openmm
+  - py3dmol
+  - veloxchem
+  - gator
+  - valet
+  - tbmasood

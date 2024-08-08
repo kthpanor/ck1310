@@ -4,4 +4,3 @@ In chemistry, theoretical models are used to rationalize and better understand a
 
 - [Quantum chemistry](sec:qc): For the simulation of the spectroscopic properties of molecules.
 - [Molecular dynamics](sec:md): For the simulation of the dynamics of molecules.
-- [Data analysis](sec:data): For the presentation of the simulation results.

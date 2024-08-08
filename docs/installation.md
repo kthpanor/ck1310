@@ -14,10 +14,10 @@ Install the version for 64 bit computers.
 
 ### Step-by-step
 
-Start a conda terminal, or Anaconda Powershell as it is referred to on a Windows system. Conda supports multiple *environments* and you start in the one named `base` as is typically indicated by the prompt. To create a new and additional environment named `myenv`, enter the following command line statement
+Start a conda terminal, or Anaconda Powershell as it is referred to on a Windows system. Conda supports multiple *environments* and you start in the one named `base` as is typically indicated by the prompt. To create a new and additional environment named `ck1310`, enter the following command line statement
 
 ```
-conda create -n myenv
+conda create -n ck1310
 ```
 
 You can list your conda environments
@@ -29,7 +29,7 @@ conda env list
 The activated environment will be marked with an asterisk (the `base` environment to begin with) and you can activate your new environment with the command
 
 ```
-conda activate myenv
+conda activate ck1310
 ```
 
 as should be indicated by getting a modified prompt.
@@ -45,28 +45,41 @@ conda install numpy scipy matplotlib jupyterlab mesa -c conda-forge
 Get all packages needed for course in one step with use of a YML file
 
 ```
-conda env create -f cb1020.yml
+conda env create -f ck1310.yml
 ```
 
-where the file `cb1020.yml` should contain
+where the file `ck1310.yml` should contain
 
 ```
-name: cb1020
+name: ck1310
 channels:
   - conda-forge
+  - veloxchem
+  - gator
+  - tbmasood
 dependencies:
-  - python
+  - python>=3.8
+  - jupyter-book
   - jupyterlab
   - jupyterlab-spellchecker
   - jupyterlab_code_formatter
+  - webcolors
+  - jsonschema-with-format-nongpl
   - black
   - isort
-  - numpy
-  - scipy
-  - matplotlib
-  - mesa
+  - ghp-import
+  - k3d
+  - ipympl
+  - ipywidgets
+  - openmm
+  - py3dmol
+  - openbabel
+  - veloxchem
+  - multipsi
+  - gator
+  - valet
   - pandas
-  - openpyxl
+
 ```
 
 Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.

@@ -4,4 +4,8 @@ sections:
 - file: docs/installation.md
 - file: docs/jupyter.ipynb
 - file: docs/python.ipynb
+- file: docs/chem
+  sections:
+  - file: docs/qc.ipynb
+  - file: docs/md.ipynb
 - file: docs/references

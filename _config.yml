@@ -5,7 +5,7 @@ title: Python Programming for Chemical Sciences (CK1310)
 author: Patrick Norman
 copyright: "2024"  # Copyright year to be placed in the footer
 logo: logo.png
-exclude_patterns       : [ README.md, data_input, cb1020.yml ]
+exclude_patterns       : [ README.md, data_input, ck1310.yml ]
 only_build_toc_files   : false
 
 # Force re-execution of notebooks on each build.

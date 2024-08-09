@@ -37,7 +37,7 @@ as should be indicated by getting a modified prompt.
 Install packages into this environment
 
 ```
-conda install numpy scipy matplotlib jupyterlab mesa -c conda-forge
+conda install numpy scipy matplotlib jupyterlab -c conda-forge
 ```
 
 ### All in one step
@@ -55,31 +55,23 @@ name: ck1310
 channels:
   - conda-forge
   - veloxchem
-  - gator
-  - tbmasood
 dependencies:
   - python>=3.8
-  - jupyter-book
   - jupyterlab
   - jupyterlab-spellchecker
   - jupyterlab_code_formatter
-  - webcolors
-  - jsonschema-with-format-nongpl
   - black
   - isort
-  - ghp-import
+  - numpy
+  - scipy
+  - matplotlib
   - k3d
-  - ipympl
-  - ipywidgets
-  - openmm
   - py3dmol
-  - openbabel
+  - openmm
   - veloxchem
-  - multipsi
-  - gator
-  - valet
   - pandas
-
+  - openpyxl
+  - pyarrow
 ```
 
 Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.
@@ -93,3 +85,15 @@ jupyter-lab
 ```
 
 which should open in your default web browser. A notebook allows for interactive execution of Python code written into cells.
+
+## If your notebook doesn’t run
+
+If you experience issues with a crashing kernel when running Veloxchem, this may relate to several OpenMP runtimes linked to the program, which causes the kernel to die. If your kernel dies, try rerunning the notebook with the below lines added in connection to the module imports. This is an undocumented, temporary solution, but we have so far not had any problems when using it.
+
+```
+import veloxchem as vlx
+...
+
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+```

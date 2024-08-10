@@ -1,23 +1,17 @@
 name: ck1310
 channels:
   - conda-forge
+  - veloxchem
 dependencies:
   - python
-  - jupyter-book
   - jupyterlab
   - jupyterlab-spellchecker
   - jupyterlab_code_formatter
   - black
   - isort
-  - ghp-import
   - numpy
   - scipy
   - matplotlib
-  - pandas
-  - openpyxl
+  - veloxchem
   - openmm
   - py3dmol
-  - veloxchem
-  - gator
-  - valet
-  - tbmasood

@@ -418,9 +418,7 @@ document.write(`
 <li><p>runs a simulation of 10,000 steps with a Langevin integrator</p></li>
 <li><p>saves a snapshot frame to a PDB file called output.pdb every 1000 time steps.</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openmm.app</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openmm.app</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">openmm</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">openmm.unit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">stdout</span>
@@ -438,30 +436,6 @@ document.write(`
         <span class="n">potentialEnergy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="n">simulation</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">openmm.unit</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">stdout</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">pdb</span> <span class="o">=</span> <span class="n">PDBFile</span><span class="p">(</span><span class="s1">&#39;input.pdb&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">forcefield</span> <span class="o">=</span> <span class="n">ForceField</span><span class="p">(</span><span class="s1">&#39;amber14-all.xml&#39;</span><span class="p">,</span> <span class="s1">&#39;amber14/tip3pfb.xml&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">system</span> <span class="o">=</span> <span class="n">forcefield</span><span class="o">.</span><span class="n">createSystem</span><span class="p">(</span><span class="n">pdb</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">nonbondedMethod</span><span class="o">=</span><span class="n">PME</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">nonbondedCutoff</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">nanometer</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">HBonds</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/ck1310/lib/python3.11/site-packages/openmm/app/pdbfile.py:93,</span> in <span class="ni">PDBFile.__init__</span><span class="nt">(self, file, extraParticleIdentifier)</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span> <span class="n">own_handle</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">93</span>     <span class="n">inputfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">own_handle</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="n">pdb</span> <span class="o">=</span> <span class="n">PdbStructure</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="n">load_all_models</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extraParticleIdentifier</span><span class="o">=</span><span class="n">extraParticleIdentifier</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;input.pdb&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>

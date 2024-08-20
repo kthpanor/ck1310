@@ -14,10 +14,10 @@ Install the version for 64 bit computers.
 
 ### Step-by-step
 
-Start a conda terminal, or Anaconda Powershell as it is referred to on a Windows system. Conda supports multiple *environments* and you start in the one named `base` as is typically indicated by the prompt. To create a new and additional environment named `myenv`, enter the following command line statement
+Start a conda terminal, or Anaconda Powershell as it is referred to on a Windows system. Conda supports multiple *environments* and you start in the one named `base` as is typically indicated by the prompt. To create a new and additional environment named `ck1310`, enter the following command line statement
 
 ```
-conda create -n myenv
+conda create -n ck1310
 ```
 
 You can list your conda environments
@@ -29,7 +29,7 @@ conda env list
 The activated environment will be marked with an asterisk (the `base` environment to begin with) and you can activate your new environment with the command
 
 ```
-conda activate myenv
+conda activate ck1310
 ```
 
 as should be indicated by getting a modified prompt.
@@ -37,7 +37,7 @@ as should be indicated by getting a modified prompt.
 Install packages into this environment
 
 ```
-conda install numpy scipy matplotlib jupyterlab mesa -c conda-forge
+conda install numpy scipy matplotlib jupyterlab -c conda-forge
 ```
 
 ### All in one step
@@ -45,17 +45,18 @@ conda install numpy scipy matplotlib jupyterlab mesa -c conda-forge
 Get all packages needed for course in one step with use of a YML file
 
 ```
-conda env create -f cb1020.yml
+conda env create -f ck1310.yml
 ```
 
-where the file `cb1020.yml` should contain
+where the file `ck1310.yml` should contain
 
 ```
-name: cb1020
+name: ck1310
 channels:
   - conda-forge
+  - veloxchem
 dependencies:
-  - python
+  - python>=3.8
   - jupyterlab
   - jupyterlab-spellchecker
   - jupyterlab_code_formatter
@@ -64,9 +65,13 @@ dependencies:
   - numpy
   - scipy
   - matplotlib
-  - mesa
+  - k3d
+  - py3dmol
+  - openmm
+  - veloxchem
   - pandas
   - openpyxl
+  - pyarrow
 ```
 
 Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.
@@ -80,3 +85,15 @@ jupyter-lab
 ```
 
 which should open in your default web browser. A notebook allows for interactive execution of Python code written into cells.
+
+## If your notebook doesn’t run
+
+If you experience issues with a crashing kernel when running Veloxchem, this may relate to several OpenMP runtimes linked to the program, which causes the kernel to die. If your kernel dies, try rerunning the notebook with the below lines added in connection to the module imports. This is an undocumented, temporary solution, but we have so far not had any problems when using it.
+
+```
+import veloxchem as vlx
+...
+
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+```

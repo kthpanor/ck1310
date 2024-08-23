@@ -46,6 +46,7 @@ dependencies:
   - veloxchem
   - k3d
   - py3dmol
+  - openbabel
 ```
 
 Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.

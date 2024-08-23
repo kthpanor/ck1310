@@ -10,7 +10,47 @@ Retrieve miniconda from the following website
 
 Install the version for 64 bit computers.
 
+**OBS** for MacOS, there are different downloads for intel and M1 processors. Follow these steps to find out what is on your laptop:
+1. Click the Apple icon in the top-left corner of your Mac.
+2. This will bring up a drop-down menu. Pick the top option: About This Mac.
+3. The resulting window should show you the information you need: look for ```intel``` or ```M1```
+
 ## Create conda environment and install packages
+You can create an environment step-by-step or directly with the use of a .yml file. Using the .yml file is the fastest and simplest way to get all the packages you need.
+
+### All in one step
+Get all packages needed for course in one step with use of a YML file by running the following command in your terminal (Mac) or Anaconda Powershell (Windows)
+
+```
+conda env create -f ck1310.yml
+```
+
+where the file [`ck1310.yml`](../ck1310.yml)* contains
+
+```
+name: ck1310
+channels:
+  - conda-forge
+  - veloxchem
+dependencies:
+  - python>=3.8
+  - jupyterlab
+  - jupyterlab-spellchecker
+  - jupyterlab_code_formatter
+  - black
+  - isort
+  - numpy
+  - scipy
+  - matplotlib
+  - openmm
+  - veloxchem
+  - k3d
+  - py3dmol
+```
+
+Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.
+
+***OBS** simply download the file, do not open it!
 
 ### Step-by-step
 
@@ -39,42 +79,6 @@ Install packages into this environment
 ```
 conda install numpy scipy matplotlib jupyterlab -c conda-forge
 ```
-
-### All in one step
-
-Get all packages needed for course in one step with use of a YML file
-
-```
-conda env create -f ck1310.yml
-```
-
-where the file `ck1310.yml` should contain
-
-```
-name: ck1310
-channels:
-  - conda-forge
-  - veloxchem
-dependencies:
-  - python>=3.8
-  - jupyterlab
-  - jupyterlab-spellchecker
-  - jupyterlab_code_formatter
-  - black
-  - isort
-  - numpy
-  - scipy
-  - matplotlib
-  - k3d
-  - py3dmol
-  - openmm
-  - veloxchem
-  - pandas
-  - openpyxl
-  - pyarrow
-```
-
-Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.
 
 ## Try it out
 

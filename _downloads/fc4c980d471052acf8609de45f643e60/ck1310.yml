@@ -16,7 +16,3 @@ dependencies:
   - veloxchem
   - k3d
   - py3dmol
-  - openbabel
-  - k3d
-  - ipympl
-  - ipywidgets

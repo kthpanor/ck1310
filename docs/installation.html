@@ -387,8 +387,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-install-miniconda">Download and install miniconda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-conda-environment-and-install-packages">Create conda environment and install packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step">Step-by-step</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#all-in-one-step">All in one step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step">Step-by-step</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it-out">Try it out</a></li>
@@ -414,9 +414,46 @@ document.write(`
 <div><p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
 </div></blockquote>
 <p>Install the version for 64 bit computers.</p>
+<p><strong>OBS</strong> for MacOS, there are different downloads for intel and M1 processors. Follow these steps to find out what is on your laptop:</p>
+<ol class="arabic simple">
+<li><p>Click the Apple icon in the top-left corner of your Mac.</p></li>
+<li><p>This will bring up a drop-down menu. Pick the top option: About This Mac.</p></li>
+<li><p>The resulting window should show you the information you need: look for <code class="docutils literal notranslate"><span class="pre">intel</span></code> or <code class="docutils literal notranslate"><span class="pre">M1</span></code></p></li>
+</ol>
 </section>
 <section id="create-conda-environment-and-install-packages">
 <h2>Create conda environment and install packages<a class="headerlink" href="#create-conda-environment-and-install-packages" title="Link to this heading">#</a></h2>
+<p>You can create an environment step-by-step or directly with the use of a .yml file. Using the .yml file is the fastest and simplest way to get all the packages you need.</p>
+<section id="all-in-one-step">
+<h3>All in one step<a class="headerlink" href="#all-in-one-step" title="Link to this heading">#</a></h3>
+<p>Get all packages needed for course in one step with use of a YML file by running the following command in your terminal (Mac) or Anaconda Powershell (Windows)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">ck1310</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>where the file <a class="reference download internal" download="" href="../_downloads/fc4c980d471052acf8609de45f643e60/ck1310.yml"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">ck1310.yml</span></code></span></a>* contains</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">ck1310</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+  <span class="o">-</span> <span class="n">veloxchem</span>
+<span class="n">dependencies</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">&gt;=</span><span class="mf">3.8</span>
+  <span class="o">-</span> <span class="n">jupyterlab</span>
+  <span class="o">-</span> <span class="n">jupyterlab</span><span class="o">-</span><span class="n">spellchecker</span>
+  <span class="o">-</span> <span class="n">jupyterlab_code_formatter</span>
+  <span class="o">-</span> <span class="n">black</span>
+  <span class="o">-</span> <span class="n">isort</span>
+  <span class="o">-</span> <span class="n">numpy</span>
+  <span class="o">-</span> <span class="n">scipy</span>
+  <span class="o">-</span> <span class="n">matplotlib</span>
+  <span class="o">-</span> <span class="n">openmm</span>
+  <span class="o">-</span> <span class="n">veloxchem</span>
+  <span class="o">-</span> <span class="n">k3d</span>
+  <span class="o">-</span> <span class="n">py3dmol</span>
+</pre></div>
+</div>
+<p>Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.</p>
+<p>*<strong>OBS</strong> simply download the file, do not open it!</p>
+</section>
 <section id="step-by-step">
 <h3>Step-by-step<a class="headerlink" href="#step-by-step" title="Link to this heading">#</a></h3>
 <p>Start a conda terminal, or Anaconda Powershell as it is referred to on a Windows system. Conda supports multiple <em>environments</em> and you start in the one named <code class="docutils literal notranslate"><span class="pre">base</span></code> as is typically indicated by the prompt. To create a new and additional environment named <code class="docutils literal notranslate"><span class="pre">ck1310</span></code>, enter the following command line statement</p>
@@ -436,38 +473,6 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">matplotlib</span> <span class="n">jupyterlab</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
 </pre></div>
 </div>
-</section>
-<section id="all-in-one-step">
-<h3>All in one step<a class="headerlink" href="#all-in-one-step" title="Link to this heading">#</a></h3>
-<p>Get all packages needed for course in one step with use of a YML file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">ck1310</span><span class="o">.</span><span class="n">yml</span>
-</pre></div>
-</div>
-<p>where the file <code class="docutils literal notranslate"><span class="pre">ck1310.yml</span></code> should contain</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="n">ck1310</span>
-<span class="n">channels</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-  <span class="o">-</span> <span class="n">veloxchem</span>
-<span class="n">dependencies</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">python</span><span class="o">&gt;=</span><span class="mf">3.8</span>
-  <span class="o">-</span> <span class="n">jupyterlab</span>
-  <span class="o">-</span> <span class="n">jupyterlab</span><span class="o">-</span><span class="n">spellchecker</span>
-  <span class="o">-</span> <span class="n">jupyterlab_code_formatter</span>
-  <span class="o">-</span> <span class="n">black</span>
-  <span class="o">-</span> <span class="n">isort</span>
-  <span class="o">-</span> <span class="n">numpy</span>
-  <span class="o">-</span> <span class="n">scipy</span>
-  <span class="o">-</span> <span class="n">matplotlib</span>
-  <span class="o">-</span> <span class="n">k3d</span>
-  <span class="o">-</span> <span class="n">py3dmol</span>
-  <span class="o">-</span> <span class="n">openmm</span>
-  <span class="o">-</span> <span class="n">veloxchem</span>
-  <span class="o">-</span> <span class="n">pandas</span>
-  <span class="o">-</span> <span class="n">openpyxl</span>
-  <span class="o">-</span> <span class="n">pyarrow</span>
-</pre></div>
-</div>
-<p>Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.</p>
 </section>
 </section>
 <section id="try-it-out">
@@ -557,8 +562,8 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-install-miniconda">Download and install miniconda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-conda-environment-and-install-packages">Create conda environment and install packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step">Step-by-step</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#all-in-one-step">All in one step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step">Step-by-step</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-it-out">Try it out</a></li>

@@ -1,0 +1,22 @@
+name: ck1310
+channels:
+  - conda-forge
+  - veloxchem
+dependencies:
+  - python>=3.8
+  - jupyterlab
+  - jupyterlab-spellchecker
+  - jupyterlab_code_formatter
+  - black
+  - isort
+  - numpy
+  - scipy
+  - matplotlib
+  - openmm
+  - veloxchem
+  - k3d
+  - py3dmol
+  - openbabel
+  - k3d
+  - ipympl
+  - ipywidgets

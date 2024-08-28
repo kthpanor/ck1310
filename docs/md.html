@@ -412,7 +412,7 @@ document.write(`
 <p>The following example is taken from the <a class="reference external" href="http://docs.openmm.org/latest/userguide/application/02_running_sims.html#a-first-example">openMM user guide</a>.</p>
 <p>Roughly, the script below carries out five actions:</p>
 <ol class="arabic simple">
-<li><p>loads a PDB file called input.pdb defining a biomolecular system</p></li>
+<li><p>loads the PDB file <code class="docutils literal notranslate"><span class="pre">input.pdb</span></code> defining a biomolecular system</p></li>
 <li><p>parameterizes the system using the Amber14 force field and TIP3P-FB water model</p></li>
 <li><p>minimizes the energy</p></li>
 <li><p>runs a simulation of 10,000 steps with a Langevin integrator</p></li>
@@ -425,7 +425,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">openmm.unit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">stdout</span>
 
-<span class="n">pdb</span> <span class="o">=</span> <span class="n">PDBFile</span><span class="p">(</span><span class="s1">&#39;input.pdb&#39;</span><span class="p">)</span>
+<span class="n">pdb</span> <span class="o">=</span> <span class="n">PDBFile</span><span class="p">(</span><span class="s1">&#39;../input.pdb&#39;</span><span class="p">)</span>
 <span class="n">forcefield</span> <span class="o">=</span> <span class="n">ForceField</span><span class="p">(</span><span class="s1">&#39;amber14-all.xml&#39;</span><span class="p">,</span> <span class="s1">&#39;amber14/tip3pfb.xml&#39;</span><span class="p">)</span>
 <span class="n">system</span> <span class="o">=</span> <span class="n">forcefield</span><span class="o">.</span><span class="n">createSystem</span><span class="p">(</span><span class="n">pdb</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">nonbondedMethod</span><span class="o">=</span><span class="n">PME</span><span class="p">,</span>
         <span class="n">nonbondedCutoff</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">nanometer</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">HBonds</span><span class="p">)</span>
@@ -441,24 +441,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">openmm.unit</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">stdout</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">pdb</span> <span class="o">=</span> <span class="n">PDBFile</span><span class="p">(</span><span class="s1">&#39;input.pdb&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">forcefield</span> <span class="o">=</span> <span class="n">ForceField</span><span class="p">(</span><span class="s1">&#39;amber14-all.xml&#39;</span><span class="p">,</span> <span class="s1">&#39;amber14/tip3pfb.xml&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">system</span> <span class="o">=</span> <span class="n">forcefield</span><span class="o">.</span><span class="n">createSystem</span><span class="p">(</span><span class="n">pdb</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">nonbondedMethod</span><span class="o">=</span><span class="n">PME</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">nonbondedCutoff</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">nanometer</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">HBonds</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/ck1310/lib/python3.11/site-packages/openmm/app/pdbfile.py:93,</span> in <span class="ni">PDBFile.__init__</span><span class="nt">(self, file, extraParticleIdentifier)</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span> <span class="n">own_handle</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">93</span>     <span class="n">inputfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">own_handle</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="n">pdb</span> <span class="o">=</span> <span class="n">PdbStructure</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="n">load_all_models</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extraParticleIdentifier</span><span class="o">=</span><span class="n">extraParticleIdentifier</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;input.pdb&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#&quot;Step&quot;,&quot;Potential Energy (kJ/mole)&quot;,&quot;Temperature (K)&quot;
+1000,-142928.10780746874,288.7831772532268
+2000,-141210.98280746874,297.8605344109884
+3000,-141109.95936996874,301.62768452161595
+4000,-140333.17030746874,298.9395730771127
+5000,-140527.99061996874,300.7913947977653
+6000,-140721.64296371874,298.1767521033987
+7000,-140221.94765121874,304.97219083586265
+8000,-140672.76796371874,302.11521486943235
+9000,-140710.42811996874,302.62621835893003
+10000,-140988.20546371874,298.65473454535424
 </pre></div>
 </div>
 </div>

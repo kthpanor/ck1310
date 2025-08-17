@@ -2,3 +2,5 @@ _build
 .DS_Store
 docs/.DS_Store
 docs/.ipynb_checkpoints/
+.ipynb_checkpoints/
+docs/*h5

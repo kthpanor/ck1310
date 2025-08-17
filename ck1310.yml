@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - veloxchem
 dependencies:
-  - python=3.9
+  - python>=3.10
   - jupyterlab
   - jupyterlab-spellchecker
   - jupyterlab_code_formatter
@@ -15,6 +15,6 @@ dependencies:
   - openmm
   - veloxchem
   - k3d
+  - rdkit
   - py3dmol
-  - openbabel
   - mdtraj

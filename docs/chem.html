@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -61,7 +61,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Quantum chemistry" href="qc.html" />
+    <link rel="next" title="References" href="references.html" />
     <link rel="prev" title="Python" href="python.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,11 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Software installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Chemistry modeling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="qc.html">Quantum chemistry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="md.html">Molecular dynamics</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chemistry modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -291,7 +287,7 @@
       
       
       
-      <li><a href="../_sources/docs/chem.md" target="_blank"
+      <li><a href="../_sources/docs/chem.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +297,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -362,7 +358,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -378,6 +376,22 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-chemistry">Quantum chemistry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-ir-spectra">Simulating IR spectra</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-dynamics">Molecular dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-room-temperature-dynamics">Modeling room temperature dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-a-basic-md-simulation-with-openmm">Running a basic MD simulation with openMM</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -389,13 +403,151 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chemistry-modeling">
 <h1>Chemistry modeling<a class="headerlink" href="#chemistry-modeling" title="Link to this heading">#</a></h1>
-<p>In chemistry, theoretical models are used to rationalize and better understand a wide range of phenomena. We will put a few selected methods in context via application examples and individual lab work to show how they can be used to address concrete chemical questions:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="qc.html#sec-qc"><span class="std std-ref">Quantum chemistry</span></a>: For the simulation of the spectroscopic properties of molecules.</p></li>
-<li><p><a class="reference internal" href="md.html#sec-md"><span class="std std-ref">Molecular dynamics</span></a>: For the simulation of the dynamics of molecules.</p></li>
-</ul>
-<div class="toctree-wrapper compound">
+<p>In chemistry, theoretical models are used to rationalize and better understand a wide range of phenomena. We will put a few selected methods in context via application examples and individual lab work to show how they can be used to address concrete chemical questions.</p>
+<p>Chemistry modeling is conducted with the use of software programs. In this course, we will apply the Python-driven software package <a class="reference external" href="https://veloxchem.org/docs/intro.html">VeloxChem</a> <span id="id1">[<a class="reference internal" href="references.html#id6" title="Z. Rinkevicius, X. Li, O. Vahtras, K. Ahmadzadeh, M. Brand, M. Ringholm, N. H. List, M. Scheurer, M. Scott, A. Dreuw, and P. Norman. VeloxChem: A Python-driven density-functional theory program for spectroscopy simulations in high-performance computing environments. WIREs Comput. Mol. Sci., 10:e1457, 2020. URL: https://doi.org/10.1002/wcms.1457.">RLV+20</a>]</span>.</p>
+<section id="quantum-chemistry">
+<span id="sec-qc"></span><h2>Quantum chemistry<a class="headerlink" href="#quantum-chemistry" title="Link to this heading">#</a></h2>
+<p>Quantum chemistry solves the equations of quantum mechanics to model molecular systems, or more specifically, the electrons in the system. The nuclei, on the other hand, are treated as point charges creating an attractive potential for the electrons.</p>
+<p>The differential equation of quantum mechanics are turned into matrix equations suitable for operations on computers by introducing a basis set. Typically one adopts localized atomic orbitals for this purpose that are predefined and tabulated. Very many basis sets are available to serve as computational cost efficient alternatives for different modeling purposes.</p>
+<section id="simulating-ir-spectra">
+<h3>Simulating IR spectra<a class="headerlink" href="#simulating-ir-spectra" title="Link to this heading">#</a></h3>
+<p>The workflow for simulating the IR spectrum of the water molecule is presented below, inspired by the example in <a class="reference external" href="https://kthpanor.github.io/echem/docs/tutorials/vib_ir_calc.html">eChem</a>. The workflow consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>Import the VeloxChem module</p></li>
+<li><p>Define a molecule and choose basis set</p></li>
+<li><p>Optimize the electronic structure for the starting geometry</p></li>
+<li><p>Optimize the molecular structure</p></li>
+<li><p>Run a vibrational analysis to get normal modes and IR intensities</p></li>
+<li><p>Plot the IR spectrum</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">veloxchem</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">vlx</span>
+</pre></div>
 </div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">molecule</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_name</span><span class="p">(</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">MolecularBasis</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="s2">&quot;def2-svp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scf_drv</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">ScfRestrictedDriver</span><span class="p">()</span>
+
+<span class="n">scf_drv</span><span class="o">.</span><span class="n">xcfun</span> <span class="o">=</span> <span class="s2">&quot;blyp&quot;</span>
+<span class="n">scf_drv</span><span class="o">.</span><span class="n">ri_coulomb</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">scf_results</span> <span class="o">=</span> <span class="n">scf_drv</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt_drv</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">OptimizationDriver</span><span class="p">(</span><span class="n">scf_drv</span><span class="p">)</span>
+
+<span class="n">opt_results</span> <span class="o">=</span> <span class="n">opt_drv</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">scf_results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt_molecule</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_xyz_string</span><span class="p">(</span><span class="n">opt_results</span><span class="p">[</span><span class="s1">&#39;final_geometry&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vib_analysis</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">VibrationalAnalysis</span><span class="p">(</span><span class="n">scf_drv</span><span class="p">)</span>
+
+<span class="n">vib_analysis_results</span> <span class="o">=</span> <span class="n">vib_analysis</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">opt_molecule</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vib_analysis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vib_results</span><span class="o">=</span><span class="n">vib_analysis_results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d5ac9b311a8fc9f60f2ead14afc712a1147c5e8353fe67b47293d60ad2cd0a9f.png" src="../_images/d5ac9b311a8fc9f60f2ead14afc712a1147c5e8353fe67b47293d60ad2cd0a9f.png" />
+</div>
+</div>
+<p>Below follows an excerpt from the program output presenting data for the three vibrational modes of water (angle bend, symmetric stretch, and asymmetric stretch):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                                                  <span class="n">Vibrational</span> <span class="n">Analysis</span>                                                   
+                                                  <span class="o">======================</span>                                                  
+                                                                                                                          
+                                   <span class="n">Vibrational</span> <span class="n">Mode</span>      <span class="mi">1</span>                                                                
+                                   <span class="o">----------------------------------------------------</span>                                   
+                                   <span class="n">Harmonic</span> <span class="n">frequency</span><span class="p">:</span>                <span class="mf">1612.83</span>  <span class="n">cm</span><span class="o">**-</span><span class="mi">1</span>                                     
+                                   <span class="n">Reduced</span> <span class="n">mass</span><span class="p">:</span>                       <span class="mf">1.0819</span>  <span class="n">amu</span>                                        
+                                   <span class="n">Force</span> <span class="n">constant</span><span class="p">:</span>                     <span class="mf">1.6581</span>  <span class="n">mdyne</span><span class="o">/</span><span class="n">A</span>                                    
+                                   <span class="n">IR</span> <span class="n">intensity</span><span class="p">:</span>                      <span class="mf">45.2095</span>  <span class="n">km</span><span class="o">/</span><span class="n">mol</span>                                     
+                                   <span class="n">Normal</span> <span class="n">mode</span><span class="p">:</span>                                                                           
+                                                              <span class="n">X</span>           <span class="n">Y</span>           <span class="n">Z</span>                                   
+                                   <span class="mi">1</span>       <span class="n">O</span>            <span class="o">-</span><span class="mf">0.0089</span>     <span class="o">-</span><span class="mf">0.0402</span>      <span class="mf">0.0569</span>                                   
+                                   <span class="mi">2</span>       <span class="n">H</span>            <span class="o">-</span><span class="mf">0.3204</span>      <span class="mf">0.2034</span>     <span class="o">-</span><span class="mf">0.5946</span>                                   
+                                   <span class="mi">3</span>       <span class="n">H</span>             <span class="mf">0.4623</span>      <span class="mf">0.4347</span>     <span class="o">-</span><span class="mf">0.3079</span>                                   
+                                                                                                                          
+                                                                                                                          
+                                   <span class="n">Vibrational</span> <span class="n">Mode</span>      <span class="mi">2</span>                                                                
+                                   <span class="o">----------------------------------------------------</span>                                   
+                                   <span class="n">Harmonic</span> <span class="n">frequency</span><span class="p">:</span>                <span class="mf">3632.29</span>  <span class="n">cm</span><span class="o">**-</span><span class="mi">1</span>                                     
+                                   <span class="n">Reduced</span> <span class="n">mass</span><span class="p">:</span>                       <span class="mf">1.0462</span>  <span class="n">amu</span>                                        
+                                   <span class="n">Force</span> <span class="n">constant</span><span class="p">:</span>                     <span class="mf">8.1326</span>  <span class="n">mdyne</span><span class="o">/</span><span class="n">A</span>                                    
+                                   <span class="n">IR</span> <span class="n">intensity</span><span class="p">:</span>                       <span class="mf">0.6656</span>  <span class="n">km</span><span class="o">/</span><span class="n">mol</span>                                     
+                                   <span class="n">Normal</span> <span class="n">mode</span><span class="p">:</span>                                                                           
+                                                              <span class="n">X</span>           <span class="n">Y</span>           <span class="n">Z</span>                                   
+                                   <span class="mi">1</span>       <span class="n">O</span>             <span class="mf">0.0064</span>      <span class="mf">0.0289</span>     <span class="o">-</span><span class="mf">0.0409</span>                                   
+                                   <span class="mi">2</span>       <span class="n">H</span>            <span class="o">-</span><span class="mf">0.5769</span>     <span class="o">-</span><span class="mf">0.3848</span>      <span class="mf">0.1318</span>                                   
+                                   <span class="mi">3</span>       <span class="n">H</span>             <span class="mf">0.4752</span>     <span class="o">-</span><span class="mf">0.0741</span>      <span class="mf">0.5175</span>                                   
+                                                                                                                          
+                                                                                                                          
+                                   <span class="n">Vibrational</span> <span class="n">Mode</span>      <span class="mi">3</span>                                                                
+                                   <span class="o">----------------------------------------------------</span>                                   
+                                   <span class="n">Harmonic</span> <span class="n">frequency</span><span class="p">:</span>                <span class="mf">3726.63</span>  <span class="n">cm</span><span class="o">**-</span><span class="mi">1</span>                                     
+                                   <span class="n">Reduced</span> <span class="n">mass</span><span class="p">:</span>                       <span class="mf">1.0796</span>  <span class="n">amu</span>                                        
+                                   <span class="n">Force</span> <span class="n">constant</span><span class="p">:</span>                     <span class="mf">8.8338</span>  <span class="n">mdyne</span><span class="o">/</span><span class="n">A</span>                                    
+                                   <span class="n">IR</span> <span class="n">intensity</span><span class="p">:</span>                      <span class="mf">12.2127</span>  <span class="n">km</span><span class="o">/</span><span class="n">mol</span>                                     
+                                   <span class="n">Normal</span> <span class="n">mode</span><span class="p">:</span>                                                                           
+                                                              <span class="n">X</span>           <span class="n">Y</span>           <span class="n">Z</span>                                   
+                                   <span class="mi">1</span>       <span class="n">O</span>            <span class="o">-</span><span class="mf">0.0625</span>     <span class="o">-</span><span class="mf">0.0185</span>     <span class="o">-</span><span class="mf">0.0229</span>                                   
+                                   <span class="mi">2</span>       <span class="n">H</span>             <span class="mf">0.5531</span>      <span class="mf">0.4008</span>     <span class="o">-</span><span class="mf">0.1774</span>                                   
+                                   <span class="mi">3</span>       <span class="n">H</span>             <span class="mf">0.4397</span>     <span class="o">-</span><span class="mf">0.1072</span>      <span class="mf">0.5407</span>                                   
+</pre></div>
+</div>
+</section>
+</section>
+<section id="molecular-dynamics">
+<span id="sec-md"></span><h2>Molecular dynamics<a class="headerlink" href="#molecular-dynamics" title="Link to this heading">#</a></h2>
+<p>A fully quantum mechanical treatment is very costly, and thus only applicable for relatively small systems. This means that unless new approximations are introduced, many systems that are of interest will be far beyond the capabilities of today’s computers. A small piece of protein from the human body can consist of several thousand atoms, and even very small systems can increase by hundreds of atoms when a solvent is added.</p>
+<p>The simulation of large proteins and long time-scales can instead be consider using molecular dynamics (MD), in which we use simple Newtonian physics on entities (e.g. atoms) constructed to emulate the behavior of the molecular system. In this chapter we will introduce the basics for running an MD simulation with <a class="reference external" href="https://openmm.org/">openMM</a>.</p>
+<section id="modeling-room-temperature-dynamics">
+<h3>Modeling room temperature dynamics<a class="headerlink" href="#modeling-room-temperature-dynamics" title="Link to this heading">#</a></h3>
+<p>OpenMM offers a high-performance toolkit for molecular simulations. It consists of a library of simulation features and an application layer, allowing end-users to use the program directly. The application layer allows openMM to be run as a stand-alone program, which is what we exploit in this course.</p>
+</section>
+<section id="running-a-basic-md-simulation-with-openmm">
+<h3>Running a basic MD simulation with openMM<a class="headerlink" href="#running-a-basic-md-simulation-with-openmm" title="Link to this heading">#</a></h3>
+<p>The following example is taken from the <a class="reference external" href="http://docs.openmm.org/latest/userguide/application/02_running_sims.html#a-first-example">openMM user guide</a>.</p>
+<p>Roughly, the script below carries out five actions:</p>
+<ol class="arabic simple">
+<li><p>loads the PDB file <code class="docutils literal notranslate"><span class="pre">input.pdb</span></code> defining a biomolecular system</p></li>
+<li><p>parameterizes the system using the Amber14 force field and TIP3P-FB water model</p></li>
+<li><p>minimizes the energy</p></li>
+<li><p>runs a simulation of 10,000 steps with a Langevin integrator</p></li>
+<li><p>saves a snapshot frame to a PDB file called output.pdb every 1000 time steps.</p></li>
+</ol>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -438,11 +590,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="qc.html"
+       href="references.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Quantum chemistry</p>
+        <p class="prev-next-title">References</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -452,6 +604,29 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-chemistry">Quantum chemistry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-ir-spectra">Simulating IR spectra</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#molecular-dynamics">Molecular dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-room-temperature-dynamics">Modeling room temperature dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-a-basic-md-simulation-with-openmm">Running a basic MD simulation with openMM</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

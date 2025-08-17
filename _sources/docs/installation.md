@@ -33,7 +33,7 @@ channels:
   - conda-forge
   - veloxchem
 dependencies:
-  - python=3.9
+  - python>=3.10
   - jupyterlab
   - jupyterlab-spellchecker
   - jupyterlab_code_formatter
@@ -42,17 +42,17 @@ dependencies:
   - numpy
   - scipy
   - matplotlib
-  - openmm
   - veloxchem
   - k3d
   - py3dmol
-  - openbabel
+  - rdkit
+  - openmm
   - mdtraj
 ```
 
 Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.
 
-***OBS** simply download the file, do not open it!
+**Note**: Simply download the file, do not open it!
 
 ### Step-by-step
 

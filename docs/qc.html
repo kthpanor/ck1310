@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -406,95 +406,121 @@ document.write(`
 <p>In this course, we will apply the Python-driven software package <a class="reference external" href="https://veloxchem.org/docs/intro.html">VeloxChem</a> for the quantum chemical simulations. A simple application of the program is presented below.</p>
 <section id="veloxchem">
 <h2>Veloxchem<a class="headerlink" href="#veloxchem" title="Link to this heading">#</a></h2>
-<p>Veloxchem [RLV+20] is an electronic structure program for the calculation of spectroscopic properties of molecular systems. It has been designed to provide both a platform for high-performance scientific computing, as well as a platform for interactive quantum chemistry via a Jupyter notebook.</p>
+<p>Veloxchem [RLV+20] is an electronic structure program for the calculation of spectroscopic properties of molecular systems. It has been designed to provide both a platform for high-performance scientific computing, as well as a platform for interactive quantum chemistry via Jupyter notebooks.</p>
 <section id="simulating-spectroscopic-propertiers-with-veloxchem">
 <h3>Simulating spectroscopic propertiers with Veloxchem<a class="headerlink" href="#simulating-spectroscopic-propertiers-with-veloxchem" title="Link to this heading">#</a></h3>
 <p>The workflow for simulating IR spectroscopy for the water molecule is presented below, inspired by the example in <a class="reference external" href="https://kthpanor.github.io/echem/docs/tutorials/vib_ir_calc.html">eChem</a>. The workflow consists of the following steps:</p>
 <ol class="arabic simple">
-<li><p>import of modules</p></li>
-<li><p>definition of molecule and basis set</p></li>
-<li><p>running an SCF optimization</p></li>
-<li><p>calculating the molecular Hessian</p></li>
-<li><p>running a vibrational analysis to get normal modes and IR intensities</p></li>
+<li><p>Import the VeloxChem module</p></li>
+<li><p>Define a molecule and choose basis set</p></li>
+<li><p>Optimize the electronic structure for the starting geometry</p></li>
+<li><p>Optimize the molecular structure</p></li>
+<li><p>Run a vibrational analysis to get normal modes and IR intensities</p></li>
+<li><p>Plot the IR spectrum</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import veloxchem and py3Dmol for 3D view of the molecule</span>
-<span class="kn">import</span> <span class="nn">veloxchem</span> <span class="k">as</span> <span class="nn">vlx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">veloxchem</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">vlx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">molecule</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_name</span><span class="p">(</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">MolecularBasis</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="s2">&quot;def2-svp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scf_drv</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">ScfRestrictedDriver</span><span class="p">()</span>
 
-<span class="c1"># define the water molecule and basis set</span>
-<span class="n">molecule_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;3</span>
-
-<span class="s2">  O 0.000 0.000  0.000</span>
-<span class="s2">  H 0.000 0.000  0.950</span>
-<span class="s2">  H 0.896 0.000 -0.317&quot;&quot;&quot;</span>
-
-<span class="n">molecule</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_xyz_string</span><span class="p">(</span><span class="n">molecule_string</span><span class="p">)</span>
-<span class="n">basis</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">MolecularBasis</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="s2">&quot;sto-3g&quot;</span><span class="p">,</span> <span class="n">ostream</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-
-<span class="c1"># setup the SCF driver and run the optimization</span>
-<span class="n">scf_drv</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">ScfRestrictedDriver</span><span class="p">()</span>
-<span class="n">scf_drv</span><span class="o">.</span><span class="n">ostream</span><span class="o">.</span><span class="n">mute</span><span class="p">()</span>
+<span class="n">scf_drv</span><span class="o">.</span><span class="n">xcfun</span> <span class="o">=</span> <span class="s2">&quot;blyp&quot;</span>
+<span class="n">scf_drv</span><span class="o">.</span><span class="n">ri_coulomb</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="n">scf_results</span> <span class="o">=</span> <span class="n">scf_drv</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the Hessian required for IR intensities</span>
-<span class="n">hessian_drv</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">ScfHessianDriver</span><span class="p">(</span><span class="n">scf_drv</span><span class="p">)</span>
-<span class="n">hessian_drv</span><span class="o">.</span><span class="n">ostream</span><span class="o">.</span><span class="n">mute</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt_drv</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">OptimizationDriver</span><span class="p">(</span><span class="n">scf_drv</span><span class="p">)</span>
 
-<span class="n">hessian_drv</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
-
-<span class="c1"># carry out vibrational analysis to get normal modes and IR intensities</span>
-<span class="n">hessian_drv</span><span class="o">.</span><span class="n">vibrational_analysis</span><span class="p">(</span><span class="n">molecule</span><span class="p">)</span>
+<span class="n">opt_results</span> <span class="o">=</span> <span class="n">opt_drv</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">molecule</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">scf_results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                                                   <span class="n">Vibrational</span> <span class="n">Analysis</span>                                                   
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt_molecule</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_xyz_string</span><span class="p">(</span><span class="n">opt_results</span><span class="p">[</span><span class="s1">&#39;final_geometry&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vib_analysis</span> <span class="o">=</span> <span class="n">vlx</span><span class="o">.</span><span class="n">VibrationalAnalysis</span><span class="p">(</span><span class="n">scf_drv</span><span class="p">)</span>
+
+<span class="n">vib_analysis_results</span> <span class="o">=</span> <span class="n">vib_analysis</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">opt_molecule</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vib_analysis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vib_results</span><span class="o">=</span><span class="n">vib_analysis_results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d5ac9b311a8fc9f60f2ead14afc712a1147c5e8353fe67b47293d60ad2cd0a9f.png" src="../_images/d5ac9b311a8fc9f60f2ead14afc712a1147c5e8353fe67b47293d60ad2cd0a9f.png" />
+</div>
+</div>
+<p>Excerpt from the program output presenting data for the three vibrational modes of water (angle bend, symmetric stretch, and asymmetric stretch):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                                                  <span class="n">Vibrational</span> <span class="n">Analysis</span>                                                   
                                                   <span class="o">======================</span>                                                  
                                                                                                                           
- <span class="n">Vibrational</span> <span class="n">Mode</span>      <span class="mi">1</span>                                                                
- <span class="o">----------------------------------------------------</span>                                   
- <span class="n">Harmonic</span> <span class="n">frequency</span><span class="p">:</span>                <span class="mf">1927.08</span>  <span class="n">cm</span><span class="o">**-</span><span class="mi">1</span>                                     
- <span class="n">Reduced</span> <span class="n">mass</span><span class="p">:</span>                       <span class="mf">1.0855</span>  <span class="n">amu</span>                                        
- <span class="n">Force</span> <span class="n">constant</span><span class="p">:</span>                     <span class="mf">2.3750</span>  <span class="n">mdyne</span><span class="o">/</span><span class="n">A</span>                                    
- <span class="n">IR</span> <span class="n">intensity</span><span class="p">:</span>                      <span class="mf">15.0373</span>  <span class="n">km</span><span class="o">/</span><span class="n">mol</span>                                     
- <span class="n">Normal</span> <span class="n">mode</span><span class="p">:</span>                                                                           
-                            <span class="n">X</span>           <span class="n">Y</span>           <span class="n">Z</span>                                   
- <span class="mi">1</span>       <span class="n">O</span>             <span class="mf">0.0587</span>      <span class="mf">0.0000</span>      <span class="mf">0.0415</span>                                   
- <span class="mi">2</span>       <span class="n">H</span>            <span class="o">-</span><span class="mf">0.7054</span>      <span class="mf">0.0000</span>      <span class="mf">0.0092</span>                                   
- <span class="mi">3</span>       <span class="n">H</span>            <span class="o">-</span><span class="mf">0.2266</span>     <span class="o">-</span><span class="mf">0.0000</span>     <span class="o">-</span><span class="mf">0.6677</span>                                   
+                                   <span class="n">Vibrational</span> <span class="n">Mode</span>      <span class="mi">1</span>                                                                
+                                   <span class="o">----------------------------------------------------</span>                                   
+                                   <span class="n">Harmonic</span> <span class="n">frequency</span><span class="p">:</span>                <span class="mf">1612.83</span>  <span class="n">cm</span><span class="o">**-</span><span class="mi">1</span>                                     
+                                   <span class="n">Reduced</span> <span class="n">mass</span><span class="p">:</span>                       <span class="mf">1.0819</span>  <span class="n">amu</span>                                        
+                                   <span class="n">Force</span> <span class="n">constant</span><span class="p">:</span>                     <span class="mf">1.6581</span>  <span class="n">mdyne</span><span class="o">/</span><span class="n">A</span>                                    
+                                   <span class="n">IR</span> <span class="n">intensity</span><span class="p">:</span>                      <span class="mf">45.2095</span>  <span class="n">km</span><span class="o">/</span><span class="n">mol</span>                                     
+                                   <span class="n">Normal</span> <span class="n">mode</span><span class="p">:</span>                                                                           
+                                                              <span class="n">X</span>           <span class="n">Y</span>           <span class="n">Z</span>                                   
+                                   <span class="mi">1</span>       <span class="n">O</span>            <span class="o">-</span><span class="mf">0.0089</span>     <span class="o">-</span><span class="mf">0.0402</span>      <span class="mf">0.0569</span>                                   
+                                   <span class="mi">2</span>       <span class="n">H</span>            <span class="o">-</span><span class="mf">0.3204</span>      <span class="mf">0.2034</span>     <span class="o">-</span><span class="mf">0.5946</span>                                   
+                                   <span class="mi">3</span>       <span class="n">H</span>             <span class="mf">0.4623</span>      <span class="mf">0.4347</span>     <span class="o">-</span><span class="mf">0.3079</span>                                   
                                                                                                                           
-        
- <span class="n">Vibrational</span> <span class="n">Mode</span>      <span class="mi">2</span>                                                                
- <span class="o">----------------------------------------------------</span>                                   
- <span class="n">Harmonic</span> <span class="n">frequency</span><span class="p">:</span>                <span class="mf">4545.78</span>  <span class="n">cm</span><span class="o">**-</span><span class="mi">1</span>                                     
- <span class="n">Reduced</span> <span class="n">mass</span><span class="p">:</span>                       <span class="mf">1.0429</span>  <span class="n">amu</span>                                        
- <span class="n">Force</span> <span class="n">constant</span><span class="p">:</span>                    <span class="mf">12.6969</span>  <span class="n">mdyne</span><span class="o">/</span><span class="n">A</span>                                    
- <span class="n">IR</span> <span class="n">intensity</span><span class="p">:</span>                      <span class="mf">30.3498</span>  <span class="n">km</span><span class="o">/</span><span class="n">mol</span>                                     
- <span class="n">Normal</span> <span class="n">mode</span><span class="p">:</span>                                                                           
-                            <span class="n">X</span>           <span class="n">Y</span>           <span class="n">Z</span>                                   
- <span class="mi">1</span>       <span class="n">O</span>            <span class="o">-</span><span class="mf">0.0397</span>      <span class="mf">0.0000</span>     <span class="o">-</span><span class="mf">0.0274</span>                                   
- <span class="mi">2</span>       <span class="n">H</span>            <span class="o">-</span><span class="mf">0.0299</span>      <span class="mf">0.0000</span>      <span class="mf">0.7000</span>                                   
- <span class="mi">3</span>       <span class="n">H</span>             <span class="mf">0.6605</span>     <span class="o">-</span><span class="mf">0.0000</span>     <span class="o">-</span><span class="mf">0.2654</span>                                   
-
-
- <span class="n">Vibrational</span> <span class="n">Mode</span>      <span class="mi">3</span>                                                                
- <span class="o">----------------------------------------------------</span>                                   
- <span class="n">Harmonic</span> <span class="n">frequency</span><span class="p">:</span>                <span class="mf">4896.44</span>  <span class="n">cm</span><span class="o">**-</span><span class="mi">1</span>                                     
- <span class="n">Reduced</span> <span class="n">mass</span><span class="p">:</span>                       <span class="mf">1.0869</span>  <span class="n">amu</span>                                        
- <span class="n">Force</span> <span class="n">constant</span><span class="p">:</span>                    <span class="mf">15.3533</span>  <span class="n">mdyne</span><span class="o">/</span><span class="n">A</span>                                    
- <span class="n">IR</span> <span class="n">intensity</span><span class="p">:</span>                      <span class="mf">12.8846</span>  <span class="n">km</span><span class="o">/</span><span class="n">mol</span>                                     
- <span class="n">Normal</span> <span class="n">mode</span><span class="p">:</span>                                                                           
-                            <span class="n">X</span>           <span class="n">Y</span>           <span class="n">Z</span>                                   
- <span class="mi">1</span>       <span class="n">O</span>             <span class="mf">0.0416</span>      <span class="mf">0.0000</span>     <span class="o">-</span><span class="mf">0.0595</span>                                   
- <span class="mi">2</span>       <span class="n">H</span>            <span class="o">-</span><span class="mf">0.0002</span>      <span class="mf">0.0000</span>      <span class="mf">0.7111</span>                                   
- <span class="mi">3</span>       <span class="n">H</span>            <span class="o">-</span><span class="mf">0.6594</span>      <span class="mf">0.0000</span>      <span class="mf">0.2331</span>                                   
+                                                                                                                          
+                                   <span class="n">Vibrational</span> <span class="n">Mode</span>      <span class="mi">2</span>                                                                
+                                   <span class="o">----------------------------------------------------</span>                                   
+                                   <span class="n">Harmonic</span> <span class="n">frequency</span><span class="p">:</span>                <span class="mf">3632.29</span>  <span class="n">cm</span><span class="o">**-</span><span class="mi">1</span>                                     
+                                   <span class="n">Reduced</span> <span class="n">mass</span><span class="p">:</span>                       <span class="mf">1.0462</span>  <span class="n">amu</span>                                        
+                                   <span class="n">Force</span> <span class="n">constant</span><span class="p">:</span>                     <span class="mf">8.1326</span>  <span class="n">mdyne</span><span class="o">/</span><span class="n">A</span>                                    
+                                   <span class="n">IR</span> <span class="n">intensity</span><span class="p">:</span>                       <span class="mf">0.6656</span>  <span class="n">km</span><span class="o">/</span><span class="n">mol</span>                                     
+                                   <span class="n">Normal</span> <span class="n">mode</span><span class="p">:</span>                                                                           
+                                                              <span class="n">X</span>           <span class="n">Y</span>           <span class="n">Z</span>                                   
+                                   <span class="mi">1</span>       <span class="n">O</span>             <span class="mf">0.0064</span>      <span class="mf">0.0289</span>     <span class="o">-</span><span class="mf">0.0409</span>                                   
+                                   <span class="mi">2</span>       <span class="n">H</span>            <span class="o">-</span><span class="mf">0.5769</span>     <span class="o">-</span><span class="mf">0.3848</span>      <span class="mf">0.1318</span>                                   
+                                   <span class="mi">3</span>       <span class="n">H</span>             <span class="mf">0.4752</span>     <span class="o">-</span><span class="mf">0.0741</span>      <span class="mf">0.5175</span>                                   
+                                                                                                                          
+                                                                                                                          
+                                   <span class="n">Vibrational</span> <span class="n">Mode</span>      <span class="mi">3</span>                                                                
+                                   <span class="o">----------------------------------------------------</span>                                   
+                                   <span class="n">Harmonic</span> <span class="n">frequency</span><span class="p">:</span>                <span class="mf">3726.63</span>  <span class="n">cm</span><span class="o">**-</span><span class="mi">1</span>                                     
+                                   <span class="n">Reduced</span> <span class="n">mass</span><span class="p">:</span>                       <span class="mf">1.0796</span>  <span class="n">amu</span>                                        
+                                   <span class="n">Force</span> <span class="n">constant</span><span class="p">:</span>                     <span class="mf">8.8338</span>  <span class="n">mdyne</span><span class="o">/</span><span class="n">A</span>                                    
+                                   <span class="n">IR</span> <span class="n">intensity</span><span class="p">:</span>                      <span class="mf">12.2127</span>  <span class="n">km</span><span class="o">/</span><span class="n">mol</span>                                     
+                                   <span class="n">Normal</span> <span class="n">mode</span><span class="p">:</span>                                                                           
+                                                              <span class="n">X</span>           <span class="n">Y</span>           <span class="n">Z</span>                                   
+                                   <span class="mi">1</span>       <span class="n">O</span>            <span class="o">-</span><span class="mf">0.0625</span>     <span class="o">-</span><span class="mf">0.0185</span>     <span class="o">-</span><span class="mf">0.0229</span>                                   
+                                   <span class="mi">2</span>       <span class="n">H</span>             <span class="mf">0.5531</span>      <span class="mf">0.4008</span>     <span class="o">-</span><span class="mf">0.1774</span>                                   
+                                   <span class="mi">3</span>       <span class="n">H</span>             <span class="mf">0.4397</span>     <span class="o">-</span><span class="mf">0.1072</span>      <span class="mf">0.5407</span>                                   
 </pre></div>
 </div>
 </section>

@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -436,7 +436,7 @@ document.write(`
   <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
   <span class="o">-</span> <span class="n">veloxchem</span>
 <span class="n">dependencies</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
+  <span class="o">-</span> <span class="n">python</span><span class="o">&gt;=</span><span class="mf">3.10</span>
   <span class="o">-</span> <span class="n">jupyterlab</span>
   <span class="o">-</span> <span class="n">jupyterlab</span><span class="o">-</span><span class="n">spellchecker</span>
   <span class="o">-</span> <span class="n">jupyterlab_code_formatter</span>
@@ -445,16 +445,16 @@ document.write(`
   <span class="o">-</span> <span class="n">numpy</span>
   <span class="o">-</span> <span class="n">scipy</span>
   <span class="o">-</span> <span class="n">matplotlib</span>
-  <span class="o">-</span> <span class="n">openmm</span>
   <span class="o">-</span> <span class="n">veloxchem</span>
   <span class="o">-</span> <span class="n">k3d</span>
   <span class="o">-</span> <span class="n">py3dmol</span>
-  <span class="o">-</span> <span class="n">openbabel</span>
+  <span class="o">-</span> <span class="n">rdkit</span>
+  <span class="o">-</span> <span class="n">openmm</span>
   <span class="o">-</span> <span class="n">mdtraj</span>
 </pre></div>
 </div>
 <p>Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.</p>
-<p>*<strong>OBS</strong> simply download the file, do not open it!</p>
+<p><strong>Note</strong>: Simply download the file, do not open it!</p>
 </section>
 <section id="step-by-step">
 <h3>Step-by-step<a class="headerlink" href="#step-by-step" title="Link to this heading">#</a></h3>
@@ -488,10 +488,10 @@ document.write(`
 <section id="if-your-notebook-doesnt-run">
 <h2>If your notebook doesn’t run<a class="headerlink" href="#if-your-notebook-doesnt-run" title="Link to this heading">#</a></h2>
 <p>If you experience issues with a crashing kernel when running Veloxchem, this may relate to several OpenMP runtimes linked to the program, which causes the kernel to die. If your kernel dies, try rerunning the notebook with the below lines added in connection to the module imports. This is an undocumented, temporary solution, but we have so far not had any problems when using it.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">veloxchem</span> <span class="k">as</span> <span class="nn">vlx</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">veloxchem</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">vlx</span>
 <span class="o">...</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KMP_DUPLICATE_LIB_OK&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TRUE&quot;</span>
 </pre></div>
 </div>

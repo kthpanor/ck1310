@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -582,7 +582,7 @@ It has a boiling point of 65 degrees Celsius.
 <p>Arrays (such as vectors and matrices) should be represented as objects of the NumPy <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> class. <a class="reference external" href="https://numpy.org/doc/stable/user/basics.creation.html">Array creation</a> can be performed in numerous ways. Two ways to create a NumPy <code class="docutils literal notranslate"><span class="pre">array</span></code> from a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> are given below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Alternative 1:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
@@ -646,7 +646,7 @@ Identity matrix:
 <p>A comparison of the use of <code class="docutils literal notranslate"><span class="pre">matmul</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops for the multiplication of two matrices of dimension 100<span class="math notranslate nohighlight">\(\times\)</span>100 shows the following execution times (in ms).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="c1"># Fixing random state for reproducibility</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">20210802</span><span class="p">)</span>
@@ -678,10 +678,10 @@ Identity matrix:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  matmul:     5.9955 (ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  matmul:     1.9143 (ms)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>for loop:   394.8236 (ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>for loop:   535.4590 (ms)
 </pre></div>
 </div>
 </div>
@@ -695,12 +695,12 @@ Identity matrix:
 <p>As an example, we implement a <em>class</em> <code class="docutils literal notranslate"><span class="pre">Triangle</span></code> with a <em>method</em> <code class="docutils literal notranslate"><span class="pre">area</span></code> and <em>attributes</em> <code class="docutils literal notranslate"><span class="pre">base</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Triangle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
         
-    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">A</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="k">return</span> <span class="n">A</span>
 </pre></div>
@@ -713,7 +713,7 @@ Identity matrix:
 <p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is executed every time a new instance of the class is created.</p>
 </div>
 <p>It is a common practice to store the code of classes in separate library files (or modules) with the file extension <code class="docutils literal notranslate"><span class="pre">*.py</span></code>. In this case, we can imagine that we store the <code class="docutils literal notranslate"><span class="pre">Triangle</span></code> class together with several other geometric objects into a module named <code class="docutils literal notranslate"><span class="pre">geometry.py</span></code> after which these would be readily available from other modules by means of an <code class="docutils literal notranslate"><span class="pre">import</span></code> statement:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geometry</span> <span class="k">as</span> <span class="nn">gm</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geometry</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gm</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">gm</span></code> is an optional shorter name reference of your choice.</p>
@@ -756,7 +756,7 @@ e^{-(x-\mu)^2 / (2\sigma^2)}
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Fixing random state for reproducibility</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">20210722</span><span class="p">)</span>
@@ -783,7 +783,7 @@ Standard deviation:  0.0996
 <p>We use <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> to plot a histogram of the density distribution of the random numbers and compared it to the analytical Gaussian distribution function <span class="math notranslate nohighlight">\(f(x)\)</span> given above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">counts</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mf">9.5</span><span class="p">,</span><span class="mf">10.5</span><span class="p">),</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -806,7 +806,7 @@ Standard deviation:  0.0996
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d0f0f41d9c2114332183169b2235501c5decc2dd2531739fbbb2ba44889ba093.png" src="../_images/d0f0f41d9c2114332183169b2235501c5decc2dd2531739fbbb2ba44889ba093.png" />
+<img alt="../_images/2e436b1e362ab4647ae3bc04c9d96ea5d9d7bdc9da4dee7fa8afd5cbfffeec0a.png" src="../_images/2e436b1e362ab4647ae3bc04c9d96ea5d9d7bdc9da4dee7fa8afd5cbfffeec0a.png" />
 </div>
 </div>
 </section>
@@ -823,25 +823,25 @@ Standard deviation:  0.0996
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function hist in module matplotlib.pyplot:
 
-hist(x: &#39;ArrayLike | Sequence[ArrayLike]&#39;, bins: &#39;int | Sequence[float] | str | None&#39; = None, range: &#39;tuple[float, float] | None&#39; = None, density: &#39;bool&#39; = False, weights: &#39;ArrayLike | None&#39; = None, cumulative: &#39;bool | float&#39; = False, bottom: &#39;ArrayLike | float | None&#39; = None, histtype: &quot;Literal[&#39;bar&#39;, &#39;barstacked&#39;, &#39;step&#39;, &#39;stepfilled&#39;]&quot; = &#39;bar&#39;, align: &quot;Literal[&#39;left&#39;, &#39;mid&#39;, &#39;right&#39;]&quot; = &#39;mid&#39;, orientation: &quot;Literal[&#39;vertical&#39;, &#39;horizontal&#39;]&quot; = &#39;vertical&#39;, rwidth: &#39;float | None&#39; = None, log: &#39;bool&#39; = False, color: &#39;ColorType | Sequence[ColorType] | None&#39; = None, label: &#39;str | Sequence[str] | None&#39; = None, stacked: &#39;bool&#39; = False, *, data=None, **kwargs) -&gt; &#39;tuple[np.ndarray | list[np.ndarray], np.ndarray, BarContainer | Polygon | list[BarContainer | Polygon]]&#39;
+hist(x: &#39;ArrayLike | Sequence[ArrayLike]&#39;, bins: &#39;int | Sequence[float] | str | None&#39; = None, *, range: &#39;tuple[float, float] | None&#39; = None, density: &#39;bool&#39; = False, weights: &#39;ArrayLike | None&#39; = None, cumulative: &#39;bool | float&#39; = False, bottom: &#39;ArrayLike | float | None&#39; = None, histtype: &quot;Literal[&#39;bar&#39;, &#39;barstacked&#39;, &#39;step&#39;, &#39;stepfilled&#39;]&quot; = &#39;bar&#39;, align: &quot;Literal[&#39;left&#39;, &#39;mid&#39;, &#39;right&#39;]&quot; = &#39;mid&#39;, orientation: &quot;Literal[&#39;vertical&#39;, &#39;horizontal&#39;]&quot; = &#39;vertical&#39;, rwidth: &#39;float | None&#39; = None, log: &#39;bool&#39; = False, color: &#39;ColorType | Sequence[ColorType] | None&#39; = None, label: &#39;str | Sequence[str] | None&#39; = None, stacked: &#39;bool&#39; = False, data=None, **kwargs) -&gt; &#39;tuple[np.ndarray | list[np.ndarray], np.ndarray, BarContainer | Polygon | list[BarContainer | Polygon]]&#39;
     Compute and plot a histogram.
-    
+
     This method uses `numpy.histogram` to bin the data in *x* and count the
     number of values in each bin, then draws the distribution either as a
     `.BarContainer` or `.Polygon`. The *bins*, *range*, *density*, and
     *weights* parameters are forwarded to `numpy.histogram`.
-    
+
     If the data has already been binned and counted, use `~.bar` or
     `~.stairs` to plot the distribution::
-    
+
         counts, bins = np.histogram(x)
         plt.stairs(counts, bins)
-    
+
     Alternatively, plot pre-computed bins and counts using ``hist()`` by
     treating each bin as a single point with a weight equal to its count::
-    
+
         plt.hist(bins[:-1], bins, weights=counts)
-    
+
     The data input *x* can be a singular array, a list of datasets of
     potentially different lengths ([*x0*, *x1*, ...]), or a 2D ndarray in
     which each column is a dataset. Note that the ndarray form is
@@ -849,43 +849,43 @@ hist(x: &#39;ArrayLike | Sequence[ArrayLike]&#39;, bins: &#39;int | Sequence[flo
     the return value is a tuple (*n*, *bins*, *patches*); if the input is a
     sequence of arrays, then the return value is a tuple
     ([*n0*, *n1*, ...], *bins*, [*patches0*, *patches1*, ...]).
-    
+
     Masked arrays are not supported.
-    
+
     Parameters
     ----------
     x : (n,) array or sequence of (n,) arrays
         Input values, this takes either a single array or a sequence of
         arrays which are not required to be of the same length.
-    
+
     bins : int or sequence or str, default: :rc:`hist.bins`
         If *bins* is an integer, it defines the number of equal-width bins
         in the range.
-    
+
         If *bins* is a sequence, it defines the bin edges, including the
         left edge of the first bin and the right edge of the last bin;
         in this case, bins may be unequally spaced.  All but the last
         (righthand-most) bin is half-open.  In other words, if *bins* is::
-    
+
             [1, 2, 3, 4]
-    
+
         then the first bin is ``[1, 2)`` (including 1, but excluding 2) and
         the second ``[2, 3)``.  The last bin, however, is ``[3, 4]``, which
         *includes* 4.
-    
+
         If *bins* is a string, it is one of the binning strategies
         supported by `numpy.histogram_bin_edges`: &#39;auto&#39;, &#39;fd&#39;, &#39;doane&#39;,
         &#39;scott&#39;, &#39;stone&#39;, &#39;rice&#39;, &#39;sturges&#39;, or &#39;sqrt&#39;.
-    
+
     range : tuple or None, default: None
         The lower and upper range of the bins. Lower and upper outliers
         are ignored. If not provided, *range* is ``(x.min(), x.max())``.
         Range has no effect if *bins* is a sequence.
-    
+
         If *bins* is a sequence or *range* is specified, autoscaling
         is based on the specified bin range instead of the
         range of x.
-    
+
     density : bool, default: False
         If ``True``, draw and return a probability density: each bin
         will display the bin&#39;s raw count divided by the total number of
@@ -893,81 +893,81 @@ hist(x: &#39;ArrayLike | Sequence[ArrayLike]&#39;, bins: &#39;int | Sequence[flo
         (``density = counts / (sum(counts) * np.diff(bins))``),
         so that the area under the histogram integrates to 1
         (``np.sum(density * np.diff(bins)) == 1``).
-    
+
         If *stacked* is also ``True``, the sum of the histograms is
         normalized to 1.
-    
+
     weights : (n,) array-like or None, default: None
         An array of weights, of the same shape as *x*.  Each value in
         *x* only contributes its associated weight towards the bin count
         (instead of 1).  If *density* is ``True``, the weights are
         normalized, so that the integral of the density over the range
         remains 1.
-    
+
     cumulative : bool or -1, default: False
         If ``True``, then a histogram is computed where each bin gives the
         counts in that bin plus all bins for smaller values. The last bin
         gives the total number of datapoints.
-    
+
         If *density* is also ``True`` then the histogram is normalized such
         that the last bin equals 1.
-    
+
         If *cumulative* is a number less than 0 (e.g., -1), the direction
         of accumulation is reversed.  In this case, if *density* is also
         ``True``, then the histogram is normalized such that the first bin
         equals 1.
-    
-    bottom : array-like, scalar, or None, default: None
+
+    bottom : array-like or float, default: 0
         Location of the bottom of each bin, i.e. bins are drawn from
         ``bottom`` to ``bottom + hist(x, bins)`` If a scalar, the bottom
         of each bin is shifted by the same amount. If an array, each bin
         is shifted independently and the length of bottom must match the
         number of bins. If None, defaults to 0.
-    
+
     histtype : {&#39;bar&#39;, &#39;barstacked&#39;, &#39;step&#39;, &#39;stepfilled&#39;}, default: &#39;bar&#39;
         The type of histogram to draw.
-    
+
         - &#39;bar&#39; is a traditional bar-type histogram.  If multiple data
           are given the bars are arranged side by side.
         - &#39;barstacked&#39; is a bar-type histogram where multiple
           data are stacked on top of each other.
         - &#39;step&#39; generates a lineplot that is by default unfilled.
         - &#39;stepfilled&#39; generates a lineplot that is by default filled.
-    
+
     align : {&#39;left&#39;, &#39;mid&#39;, &#39;right&#39;}, default: &#39;mid&#39;
         The horizontal alignment of the histogram bars.
-    
+
         - &#39;left&#39;: bars are centered on the left bin edges.
         - &#39;mid&#39;: bars are centered between the bin edges.
         - &#39;right&#39;: bars are centered on the right bin edges.
-    
+
     orientation : {&#39;vertical&#39;, &#39;horizontal&#39;}, default: &#39;vertical&#39;
         If &#39;horizontal&#39;, `~.Axes.barh` will be used for bar-type histograms
         and the *bottom* kwarg will be the left edges.
-    
+
     rwidth : float or None, default: None
         The relative width of the bars as a fraction of the bin width.  If
         ``None``, automatically compute the width.
-    
+
         Ignored if *histtype* is &#39;step&#39; or &#39;stepfilled&#39;.
-    
+
     log : bool, default: False
         If ``True``, the histogram axis will be set to a log scale.
-    
+
     color : :mpltype:`color` or list of :mpltype:`color` or None, default: None
         Color or sequence of colors, one per dataset.  Default (``None``)
         uses the standard line color sequence.
-    
+
     label : str or list of str, optional
         String, or sequence of strings to match multiple datasets.  Bar
         charts yield multiple patches per dataset, but only the first gets
         the label, so that `~.Axes.legend` will work as expected.
-    
+
     stacked : bool, default: False
         If ``True``, multiple data are stacked on top of each other If
         ``False`` multiple data are arranged side by side if histtype is
         &#39;bar&#39; or on top of each other if histtype is &#39;step&#39;
-    
+
     Returns
     -------
     n : array or list of arrays
@@ -978,41 +978,47 @@ hist(x: &#39;ArrayLike | Sequence[ArrayLike]&#39;, bins: &#39;int | Sequence[flo
         the values of the histograms for each of the arrays in the same
         order.  The dtype of the array *n* (or of its element arrays) will
         always be float even if no weighting or normalization is used.
-    
+
     bins : array
         The edges of the bins. Length nbins + 1 (nbins left edges and right
         edge of last bin).  Always a single array even when multiple data
         sets are passed in.
-    
+
     patches : `.BarContainer` or list of a single `.Polygon` or list of such objects
         Container of individual artists used to create the histogram
         or list of such containers if there are multiple input datasets.
-    
+
     Other Parameters
     ----------------
     data : indexable object, optional
         If given, the following parameters also accept a string ``s``, which is
-        interpreted as ``data[s]`` (unless this raises an exception):
-    
+        interpreted as ``data[s]`` if ``s`` is a key in ``data``:
+
         *x*, *weights*
-    
+
     **kwargs
-        `~matplotlib.patches.Patch` properties
-    
+        `~matplotlib.patches.Patch` properties. The following properties
+        additionally accept a sequence of values corresponding to the
+        datasets in *x*:
+        *edgecolor*, *facecolor*, *linewidth*, *linestyle*, *hatch*.
+
+        .. versionadded:: 3.10
+           Allowing sequences of values in above listed Patch properties.
+
     See Also
     --------
     hist2d : 2D histogram with rectangular bins
     hexbin : 2D histogram with hexagonal bins
     stairs : Plot a pre-computed histogram
     bar : Plot a pre-computed histogram
-    
+
     Notes
     -----
-    
+
     .. note::
-    
+
         This is the :ref:`pyplot wrapper &lt;pyplot_interface&gt;` for `.axes.Axes.hist`.
-    
+
     For large numbers of bins (&gt;1000), plotting can be significantly
     accelerated by using `~.Axes.stairs` to plot a pre-computed histogram
     (``plt.stairs(*np.histogram(data))``), or by setting *histtype* to

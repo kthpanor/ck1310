@@ -21,10 +21,16 @@ For MacOS, there are different downloads for Intel and M1 processors. Follow the
 You can create an environment step-by-step or directly with the use of a .yml file. Using the .yml file is the fastest and simplest way to get all the packages you need.
 
 ### All in one step
-Get all packages needed for course in one step with use of a YML file by running the following command in your terminal (Mac) or Anaconda Powershell (Windows)
+Get all packages needed for course in one step with use of a YML file by running the following command in your terminal (Mac) 
 
 ```
 conda env create -f ck1310.yml
+```
+
+or Anaconda Powershell (Windows)
+
+```
+conda env create -f ck1310_win.yml
 ```
 
 where the file [`ck1310.yml`](../ck1310.yml)* contains
@@ -51,6 +57,33 @@ dependencies:
   - openmm
   - mdtraj
 ```
+
+and the file [`ck1310_win.yml`](../ck1310_win.yml)* contains
+
+```
+name: ck1310
+channels:
+  - conda-forge
+  - veloxchem
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - jupyterlab-spellchecker
+  - jupyterlab_code_formatter
+  - black
+  - isort
+  - numpy
+  - scipy
+  - matplotlib
+  - veloxchem
+  - msmpi
+  - k3d
+  - py3dmol
+  - rdkit
+  - openmm
+  - mdtraj
+```
+
 
 Some additional features are then made available in your notebooks such as a spell checker and a Python code formatter.
 

@@ -10,10 +10,12 @@ Retrieve miniconda from the following website
 
 Install the version for 64 bit computers.
 
-**OBS** for MacOS, there are different downloads for intel and M1 processors. Follow these steps to find out what is on your laptop:
+```{note}
+For MacOS, there are different downloads for Intel and M1 processors. Follow these steps to find out what is on your laptop:
 1. Click the Apple icon in the top-left corner of your Mac.
 2. This will bring up a drop-down menu. Pick the top option: About This Mac.
-3. The resulting window should show you the information you need: look for ```intel``` or ```M1```
+3. The resulting window should show you the information you need: look for "Intel" or "M1"
+```
 
 ## Create conda environment and install packages
 You can create an environment step-by-step or directly with the use of a .yml file. Using the .yml file is the fastest and simplest way to get all the packages you need.
